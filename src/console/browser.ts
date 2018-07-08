@@ -1,11 +1,15 @@
 import { LogEntry, LogType } from "../entry";
 
+const VALUE_COLOR = "#58C";
+const TEXT_COLOR = "#888";
+
 export class BrowserConsole {
     private lastScope = "";
     private groupOpen = false;
     private groupCloseTimer: number;
     private pendingGroupEntry: LogEntry | null = null;
     private allowGrouping = false;
+
     constructor() {}
 
     log(entry: LogEntry): void {
@@ -87,7 +91,7 @@ export class BrowserConsole {
         }
 
         templates.push("%c");
-        values.push(`color: #888;`);
+        values.push(`color:${TEXT_COLOR};`);
 
         messageStrings.forEach((string, index) => {
             templates.push(string);
@@ -96,14 +100,19 @@ export class BrowserConsole {
 
             const value = messageValues[index];
             if (typeof value === "string") {
-                templates.push("%s");
+                templates.push("%c%s%c");
+                values.push(`color:${VALUE_COLOR};font-weight:bold;`);
+                values.push(value);
+                values.push(`color:${TEXT_COLOR};font-weight:normal;`);
             } else if (typeof value === "number") {
-                templates.push("%f");
+                templates.push("%c%f%c");
+                values.push(`color:${VALUE_COLOR};font-weight:bold;`);
+                values.push(value);
+                values.push(`color:${TEXT_COLOR};font-weight:normal;`);
             } else {
                 templates.push("%O");
+                values.push(value);
             }
-
-            values.push(value);
         });
 
         if (entry.type === LogType.ERROR) {
