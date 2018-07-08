@@ -1,4 +1,6 @@
-## Usage
+## Overview
+
+Simple logger for the browser and node.
 
 ```javascript
 const { Logger } = require("@netio/logger");
@@ -9,14 +11,11 @@ logger.info`Hello World!`;
 
 ## Example output
 
-<div style="display:flex">
-  <div style="margin:6px;">
-    <img src="docs/example1-terminal.png?raw=true" alt="Screenshot of log results in the terminal">
-  </div>
-  <div style="margin:6px;">
-    <img src="docs/example1-browser.png?raw=true" alt="Screenshot of log results in Chrome's developer console">
-  </div>
-</div>
+<img width="478" src="docs/example1-terminal.png?raw=true" alt="Screenshot of log results in the terminal">
+
+<p />
+
+<img width="478" src="docs/example1-browser.png?raw=true" alt="Screenshot of log results in Chrome's developer console">
 
 ## API
 
@@ -28,4 +27,4 @@ logger.warn`Warn`;
 logger.error`Error`;
 ```
 
-![Screenshot of log results in the terminal](docs/example-levels.png?raw=true)
+<img width="281" src="docs/example-levels.png?raw=true" alt="Screenshot of log results in the terminal">
