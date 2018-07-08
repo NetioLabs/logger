@@ -7,13 +7,16 @@ const logger = new Logger("foo.bar");
 logger.info`Hello World!`;
 ```
 
-## Terminal
+## Example output
 
-![Screenshot of log results in the terminal](docs/example1-terminal.png?raw=true)
-
-## Browser
-
-![Screenshot of log results in Chrome's console](docs/example1-browser.png?raw=true)
+<div style="display:flex">
+  <div style="margin:6px;">
+    <img src="docs/example1-terminal.png?raw=true" alt="Screenshot of log results in the terminal">
+  </div>
+  <div style="margin:6px;">
+    <img src="docs/example1-browser.png?raw=true" alt="Screenshot of log results in Chrome's developer console">
+  </div>
+</div>
 
 ## API
 
